@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+  --primary-color: #75e6a4;
+  --primary-color-dark: #2bc27e;
+  --text-dark: #111827;
+  --text-light: #6b7280;
+  --white: #ffffff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link a {
+  text-decoration: none;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.link a:hover {
+  color: var(--primary-color);
+}
+section{
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 5px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+section h1{
+
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+section p{
+    margin-bottom: 2rem;
+  color: var(--text-light);
+  line-height: 1.75rem;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <nav>
+        <div class="nav__logo">listenMyMind</div>
+        <ul class="nav__links">
+          <li class="link"><a href="#">Home</a></li>
+          <li class="link"><a href="#">AboutUs</a></li>
+          <li class="link"><a href="#">Contact</a></li>
+        </ul>
+        <button class="btn">services</button>
+      </nav>
+
+      <section>
+        <h1>ADHD</h1>
+        <p>Between 7.8 and 11% of children aged 4 to 17 are diagnosed with ADHD any given year. ADHD affects people of all ages and includes multiple symptoms such as inability to concentrate, forgetfulness, inability to sit still, restlessness, and losing things" "An individual's symptoms vary depending on t heir age, gender, and type of ADHD: combined type ADHD, impulsive/hyperactive type ADHD, and inattentive and distractible type ADHD." Most people think meds are the only way to control ADHD. Well, many people diagnosed with the disorder find relief by using a combination of medications, life coaching, education, and talk therapy..</p>
+        <a href="./adhd/index.html"><button class="btn">MORE</button>
+      </section></a>
+      <hr>
+      <section>
+        <h1>AUTISM</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa delectus, facilis ea ratione, deserunt officiis est, minima numquam minus quae harum animi magnam consequatur dolorem doloremque. Assumenda expedita, sequi consectetur quo accusantium iusto, quasi itaque porro quam cupiditate ipsam recusandae voluptatem laudantium! Expedita provident sapiente veniam sunt vel tempore assumenda.</p>
+        <button class="btn">MORE</button>
+      </section>
+      <hr>
+      <section>
+        <h1>OCD</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa delectus, facilis ea ratione, deserunt officiis est, minima numquam minus quae harum animi magnam consequatur dolorem doloremque. Assumenda expedita, sequi consectetur quo accusantium iusto, quasi itaque porro quam cupiditate ipsam recusandae voluptatem laudantium! Expedita provident sapiente veniam sunt vel tempore assumenda.</p>
+        <button class="btn">MORE</button>
+      </section>
+      <hr>
+    </div>
+</body>
+</html>
