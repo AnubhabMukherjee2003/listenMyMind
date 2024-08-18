@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <style>
+        /* coding with nick */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: #ffffff;
+  /* background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7f7 100%); */
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.quiz-container{
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 600px;
+  overflow: hidden;
+}
+.quiz-header{
+  padding: 4rem;
+}
+h2{
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+ul li{
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+ul li label{
+  cursor: pointer;
+}
+button{
+  background-color: #75e6a4;
+  color: #fff;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-family: inherit;
+  padding: 1.3rem;
+}
+button:hover{
+  background-color: #2bc27e;
+}
+/* button:focus{
+  outline: none;
+  background-color: #44b927;
+} */
+    </style>
+</head>
+<body>
+  <div class="quiz-container" id="quiz">
+    <div class="quiz-header">
+      <h2 id="question">Question Text</h2>
+      <ul>
+        <li>
+          <input type="radio" name="answer" id="a" class="answer">
+          <label for="a" id="a_text">Answer</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="b" class="answer">
+          <label for="b" id="b_text">Answer</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="c" class="answer">
+          <label for="c" id="c_text">Answer</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="d" class="answer">
+          <label for="d" id="d_text">Answer</label>
+        </li>
+      </ul>
+    </div>
+    <button id="submit">Submit</button>
+  </div>
+    <script>
+        // const quizData = [
+//     {
+//         question: "Which language runs in a web browser?",
+//         arr: ["d","a"]
+//     },
+//     {
+//         question: "What does CSS stand for?",
+//         arr: ["b","a"]
+//     },
+//     {
+//         question: "What does HTML stand for?",
+//         arr: ["a","b"]
+//     },
+//     {
+//         question: "What year was JavaScript launched?",
+//         arr: ["b","a"]
+//     },
+
+// ];
+const quizData = [
+    {
+      question: "I prefer to do things with others rather than on my own",
+      arr: ["c","d"]
+    },
+    {
+      question: "I prefer to do things the same way over and over again",
+      arr: ["a","b"]    
+    },
+    {
+      question: "If I try to imagine something, I find it very easy to create a picture in my mind",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I frequently get so strongly absorbed in one thing that I lose sight of other things",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I often notice small sounds when others do not",
+      arr: ["a","b"]    
+    },
+
+    {
+      question: "I usually notice car number plates or similar strings of information",
+      arr: ["a","b"]    
+    },
+    {
+      question: "Other people frequently tell me that what I've said is impolite, even though I think it is polite",
+      arr: ["a","b"]    
+    },
+    {
+      question: "When I'm reading a story, I can easily imagine what the characters might look like",
+      arr: ["c","d"]    },
+    {
+      question: "I am fascinated by dates",
+      arr: ["a","b"]    
+    },
+    {
+      question: "In a social group, I can easily keep track of several different people’s conversations",
+      arr: ["c","d"]    
+    },
+
+
+    {
+      question: "I find social situations easy",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I tend to notice details that others do not",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I would rather go to a library than a party",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I find making up stories easy",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I find myself drawn more strongly to people than to things",
+      arr: ["c","d"]    
+    },
+
+    {
+      question: "I tend to have very strong interests, which I get upset about if I can't pursue",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I enjoy social chit-chat",
+      arr: ["c","d"]    
+    },
+    {
+      question: "When I talk, it isn't always easy for others to get a word in edgeways",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I am fascinated by numbers",
+      arr: ["a","b"]    
+    },
+    {
+      question: "When I'm reading a story, I find it difficult to work out the characters' intentions",
+      arr: ["a","b"]    
+    },
+
+
+    {
+      question: "I don't particularly enjoy reading fiction",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I find it hard to make new friends",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I notice patterns in things all the time",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I would rather go to the theatre than a museum",
+      arr: ["c","d"]    
+    },
+    {
+      question: "It does not upset me if my daily routine is disturbed",
+      arr: ["c","d"]    
+    },
+
+    {
+      question: "I frequently find that I don't know how to keep a conversation going",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I find it easy to “read between the lines” when someone is talking to me",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I usually concentrate more on the whole picture, rather than the small details",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I am not very good at remembering phone numbers",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I don't usually notice small changes in a situation, or a person's appearance",
+      arr: ["c","d"]    
+    },
+
+
+    {
+      question: "I know how to tell if someone listening to me is getting bored",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I find it easy to do more than one thing at once",
+      arr: ["c","d"]    
+    },
+    {
+      question: "When I talk on the phone, I'm not sure when it's my turn to speak",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I enjoy doing things spontaneously",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I am often the last to understand the point of a joke",
+      arr: ["a","b"]    
+    },
+
+    {
+      question: "I find it easy to work out what someone is thinking or feeling just by looking at their face",
+      arr: ["c","d"]    
+    },
+    {
+      question: "If there is an interruption, I can switch back to what I was doing very quickly",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I am good at social chit-chat",
+      arr: ["c","d"]    
+    },
+    {
+      question: "People often tell me that I keep going on and on about the same thing",
+      arr: ["a","b"]    
+    },
+    {
+      question: "When I was young, I used to enjoy playing games involving pretending with other children",
+      arr: ["c","d"]    
+    },
+
+
+    {
+      question: "I like to collect information about categories of things (e.g., types of car, types of bird, types of train, types of plant, etc.)",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I find it difficult to imagine what it would be like to be someone else",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I like to plan any activities I participate in carefully",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I enjoy social occasions",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I find it difficult to work out people's intentions",
+      arr: ["a","b"]    
+    },
+
+    {
+      question: "New situations make me anxious",
+      arr: ["a","b"]    
+    },
+    {
+      question: "I enjoy meeting new people",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I am a good diplomat",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I am not very good at remembering people's date of birth",
+      arr: ["c","d"]    
+    },
+    {
+      question: "I find it very easy to play games with children that involve pretending",
+      arr: ["c","d"]    
+    }
+  ];
+  
+const quiz= document.getElementById('quiz')
+const answerEls = document.querySelectorAll('.answer')
+const questionEl = document.getElementById('question')
+const a_text = document.getElementById('a_text')
+const b_text = document.getElementById('b_text')
+const c_text = document.getElementById('c_text')
+const d_text = document.getElementById('d_text')
+const submitBtn = document.getElementById('submit')
+let currentQuiz = 0
+let score = 0
+loadQuiz()
+function loadQuiz() {
+    deselectAnswers()
+    const currentQuizData = quizData[currentQuiz]
+    questionEl.innerText = currentQuizData.question
+    a_text.innerText ="Definitely Agree"
+    b_text.innerText = "Slightly Agree"
+    c_text.innerText = "Slightly Disagree"
+    d_text.innerText = "Definitely Disagree"
+}
+function deselectAnswers() {
+    answerEls.forEach(answerEl => answerEl.checked = false)
+}
+function getSelected() {
+    let answer
+    c=0
+    answerEls.forEach(answerEl => {
+        if(answerEl.checked) {
+            c++
+            answer = answerEl.id
+        }
+    })
+    return answer
+}
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected()
+    if(answer) {
+       if( answer === quizData[currentQuiz].arr[0] || answer === quizData[currentQuiz].arr[1]) {
+           score++
+       }
+       currentQuiz++
+       if(currentQuiz < quizData.length) {
+           loadQuiz()
+       } else {
+           quiz.innerHTML = `
+           <h2>You answered ${score}/${quizData.length} questions arrly</h2>
+           <button onclick="location.reload()">Reload</button>
+           `
+       }
+    }else {
+        alert('Please select an answer before submitting!')
+    }
+})
+
+    </script>
+</body>
+</html>
